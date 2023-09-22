@@ -78,8 +78,11 @@ export class TableOverviewExample {
   ];
 
   filterFN = (data: any, filter: string): boolean => {
-    console.log('FIlter');
     return data.name.toLowerCase().includes(filter.toLowerCase());
+  };
+
+  filterFN1 = (data: any, filter: string): boolean => {
+    return data.fruit.toLowerCase().includes(filter.toLowerCase());
   };
 
   onRowClick = (data: any) => {

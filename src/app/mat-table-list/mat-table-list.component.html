@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8 my-5">
   <div class="mat-table-container-no-top-padding">
     <table mat-table [dataSource]="dataSource" matSort>
       <ng-container [matColumnDef]="col.name" *ngFor="let col of columns">
@@ -43,5 +43,3 @@
   >
   </mat-paginator>
 </div>
-
-{{ displayedColumns | json }}
