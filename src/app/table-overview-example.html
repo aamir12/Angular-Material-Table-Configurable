@@ -3,6 +3,7 @@
   <input matInput [(ngModel)]="filterValue" placeholder="Search Here" />
 </mat-form-field>
 
+<h3>Search by Name</h3>
 <app-mat-table-list
   [data]="data"
   [filterValue]="filterValue"
@@ -12,6 +13,7 @@
   [rowClickListner]="onRowClick"
 ></app-mat-table-list>
 
+<h3>Search by Fruit</h3>
 <app-mat-table-list
   [data]="data"
   [filterValue]="filterValue"
