@@ -1,0 +1,13 @@
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput [(ngModel)]="filterValue" placeholder="Search Here" />
+</mat-form-field>
+
+<app-mat-table-list
+  [data]="data"
+  [filterValue]="filterValue"
+  [pageSize]="10"
+  [columns]="columns"
+  [filterFn]="filterFN"
+  [rowClickListner]="onRowClick"
+></app-mat-table-list>
