@@ -20,6 +20,7 @@
         mat-row
         *matRowDef="let row; columns: displayedColumns"
         (click)="rowClickListner(row)"
+        [class.cursor-pointer]="hasRowClickHandler"
       ></tr>
 
       <tr class="mat-row" *matNoDataRow>

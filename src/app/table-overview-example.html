@@ -1,6 +1,11 @@
 <mat-form-field appearance="standard">
   <mat-label>Filter</mat-label>
-  <input matInput [(ngModel)]="filterValue" placeholder="Search Here" />
+  <input
+    matInput
+    [(ngModel)]="textSearch"
+    (input)="applyFilter()"
+    placeholder="Search Here"
+  />
 </mat-form-field>
 
 <h3>Search by Name</h3>
@@ -10,6 +15,7 @@
   [pageSize]="10"
   [columns]="columns"
   [filterFn]="filterFN"
+  [hasRowClickHandler]="true"
   [rowClickListner]="onRowClick"
 ></app-mat-table-list>
 

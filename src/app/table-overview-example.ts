@@ -54,6 +54,7 @@ const NAMES: string[] = [
 export class TableOverviewExample {
   data: any[] = [];
   filterValue = '';
+  textSearch = '';
   columns = [
     {
       name: 'id',
@@ -94,6 +95,12 @@ export class TableOverviewExample {
     // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
     this.data = users;
+  }
+
+  //this will useful, If we want to filter by multiple fields
+  //We just need to use JSON.stringify({field:value})
+  applyFilter() {
+    this.filterValue = this.textSearch;
   }
 }
 

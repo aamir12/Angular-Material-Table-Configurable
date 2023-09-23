@@ -20,13 +20,9 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   @Input() filterValue: string = '';
   @Input() pageSize: number = 5;
   @Input() columns: any[] = [];
+  @Input() hasRowClickHandler: boolean = false;
   @Input() rowClickListner: (data?: any) => void = (data: any) => {};
-  @Input() filterFn: (data: any, filter: string) => boolean = (
-    data: any,
-    filter: string
-  ) => {
-    return true;
-  };
+  @Input() filterFn: (data: any, filter: string) => boolean;
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -53,7 +49,9 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   }
 
   filterDefinition() {
-    this.dataSource.filterPredicate = this.filterFn;
+    if (this.filterFn) {
+      this.dataSource.filterPredicate = this.filterFn;
+    }
   }
 
   applyFilter() {
