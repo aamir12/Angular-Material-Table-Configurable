@@ -81,6 +81,36 @@ export class TableOverviewExample {
     },
   ];
 
+  actionBtns = [
+    {
+      name: 'View',
+      onClick: this.onView,
+      icon: 'visibility',
+    },
+    {
+      name: 'Edit',
+      onClick: this.onEdit,
+      icon: 'edit',
+    },
+    {
+      name: 'Delete',
+      onClick: this.onDelete,
+      icon: 'delete',
+    },
+  ];
+
+  onEdit(row: any) {
+    console.log('On Edit', row);
+  }
+
+  onView(row: any) {
+    console.log('On View', row);
+  }
+
+  onDelete(row: any) {
+    console.log('On Delete', row);
+  }
+
   filterFN = (data: any, filter: string): boolean => {
     return data.name.toLowerCase().includes(filter.toLowerCase());
   };

@@ -20,6 +20,7 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   @Input() filterValue: string = '';
   @Input() pageSize: number = 5;
   @Input() columns: any[] = [];
+  @Input() actionWidth: string = '5%';
   @Input() rowClickListner!: (data?: any) => void;
   @Input() filterFn!: (data: any, filter: string) => boolean;
   @Input() sortFn!: (data: any[], sort: MatSort) => any[];
@@ -35,7 +36,11 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [];
 
   ngOnInit() {
-    this.displayedColumns = this.columns.map((x) => x.name);
+    const displayedCols = this.columns.map((x) => x.name);
+    this.displayedColumns = !!this.actionBtns.length
+      ? ['action', ...displayedCols]
+      : displayedCols;
+
     this.dataSource = new MatTableDataSource(this.data);
     this.filterDefinition();
     this.sortDefinition();
