@@ -9,26 +9,27 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { IActionBtn, IColumn } from '../table-overview-example';
 
 @Component({
   selector: 'app-mat-table-list',
   templateUrl: './mat-table-list.component.html',
   styleUrls: ['./mat-table-list.component.scss'],
 })
-export class MatTableListComponent implements OnInit, AfterViewInit {
-  @Input() data: any[] = [];
+export class MatTableListComponent<T> implements OnInit, AfterViewInit {
+  @Input() data: T[] = [];
   @Input() filterValue: string = '';
   @Input() pageSize: number = 5;
-  @Input() columns: any[] = [];
+  @Input() columns: IColumn[] = [];
   @Input() actionWidth: string = '5%';
-  @Input() rowClickListner!: (data?: any) => void;
-  @Input() filterFn!: (data: any, filter: string) => boolean;
-  @Input() sortFn!: (data: any[], sort: MatSort) => any[];
+  @Input() rowClickListner!: (data: T) => void;
+  @Input() filterFn!: (data: T, filter: string) => boolean;
+  @Input() sortFn!: (data: T[], sort: MatSort) => T[];
 
   //need to work on action btns
-  @Input() actionBtns: any[] = [];
+  @Input() actionBtns: IActionBtn[] = [];
 
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<T>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -81,7 +82,7 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  onRowClick(row: any) {
+  onRowClick(row: T) {
     if (this.rowClickListner) {
       this.rowClickListner(row);
     }

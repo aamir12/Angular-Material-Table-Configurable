@@ -1,13 +1,24 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-
-export interface UserData {
+export interface IUserData {
   id: string;
   name: string;
   progress: string;
   fruit: string;
+}
+
+export interface IColumn {
+  name: string;
+  disableSorting?: boolean;
+  displayName: string;
+  style?: string;
+  transForm?: (value: string) => string;
+}
+
+export interface IActionBtn {
+  name: string;
+  onClick: (data: IUserData) => void;
+  icon?: string;
 }
 
 /** Constants used to fill up our data base. */
@@ -49,14 +60,14 @@ const NAMES: string[] = [
   templateUrl: 'table-overview-example.html',
 })
 export class TableOverviewExample {
-  data: any[] = [];
-  data1: any[] = [];
+  data: IUserData[] = [];
+  data1: IUserData[] = [];
   filterValue = '';
   textSearch = '';
 
   //Define column configuation
   //transForm,style,disableSorting are optional
-  columns = [
+  columns: IColumn[] = [
     {
       name: 'id',
       disableSorting: true,
@@ -99,29 +110,29 @@ export class TableOverviewExample {
     },
   ];
 
-  onEdit(row: any) {
+  onEdit(row: IUserData) {
     console.log('On Edit', row);
   }
 
-  onView(row: any) {
+  onView(row: IUserData) {
     console.log('On View', row);
   }
 
-  onDelete(row: any) {
+  onDelete(row: IUserData) {
     console.log('On Delete', row);
   }
 
-  filterFN = (data: any, filter: string): boolean => {
+  filterFN = (data: IUserData, filter: string): boolean => {
     return data.name.toLowerCase().includes(filter.toLowerCase());
   };
 
-  sortFn = (items: any[], sort: MatSort): any[] => {
+  sortFn = (items: IUserData[], sort: MatSort): IUserData[] => {
     if (!sort.active || sort.direction === '') {
       return items;
     }
 
     console.log('Custom Sorting');
-    return items.sort((a: any, b: any) => {
+    return items.sort((a, b) => {
       let comparatorResult = 0;
       switch (sort.active) {
         case 'name':
@@ -172,11 +183,11 @@ export class TableOverviewExample {
   //   });
   // };
 
-  filterFN1 = (data: any, filter: string): boolean => {
+  filterFN1 = (data: IUserData, filter: string): boolean => {
     return data.fruit.toLowerCase().includes(filter.toLowerCase());
   };
 
-  onRowClick = (data: any) => {
+  onRowClick = (data: IUserData) => {
     console.log('Row Click');
     console.log(data);
   };
@@ -200,7 +211,7 @@ export class TableOverviewExample {
 }
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
+function createNewUser(id: number): IUserData {
   const name =
     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
     ' ' +
