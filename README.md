@@ -6,16 +6,17 @@
 
 ## Features
 
+- Fully Type Safe
+- Custom Filtration
+- Custom Sorting
+- Disable Specific Columns Sorting
 - Configurable Columns
+- Apply Multiple Columns Filtration by using custom function
 - Columns Data Transfomation
 - Custom Columns width
 - Responsive Table
-- Custom Filtration
-- Custom Sorting
-- Apply Multiple Columns Filtration by using custom function
 - Action Buttons
 - Action Button width and position
-- Fully Type Safe
 - Pagination and Page Size
 - Row Click handler
 
