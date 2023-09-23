@@ -85,6 +85,63 @@ export class TableOverviewExample {
     return data.name.toLowerCase().includes(filter.toLowerCase());
   };
 
+  sortFn = (items: any[], sort: MatSort): any[] => {
+    if (!sort.active || sort.direction === '') {
+      return items;
+    }
+
+    console.log('Custom Sorting');
+    return items.sort((a: any, b: any) => {
+      let comparatorResult = 0;
+      switch (sort.active) {
+        case 'name':
+          comparatorResult = a.name.localeCompare(b.name);
+          break;
+        case 'fruit':
+          comparatorResult = a.fruit.localeCompare(b.fruit);
+          break;
+        default:
+          comparatorResult = a.name.localeCompare(b.name);
+          break;
+      }
+      return comparatorResult * (sort.direction == 'asc' ? 1 : -1);
+    });
+  };
+
+  //We can build your complex logic
+  // sortFN = (items: any[], sort: MatSort): any[] => {
+  //   if (!sort.active || sort.direction === '') {
+  //     return items;
+  //   }
+
+  //   return items.sort((a: any, b: any) => {
+  //     let comparatorResult = 0;
+  //     switch (sort.active) {
+  //       case 'name':
+  //         comparatorResult = a.name.localeCompare(b.name);
+  //         break;
+  //       case 'class':
+  //         comparatorResult = a.class.localeCompare(b.class);
+  //         break;
+  //       case 'section':
+  //         comparatorResult = a.section.localeCompare(b.section);
+  //         break;
+  //       case 'subjects':
+  //         comparatorResult = a.subjects.length - b.subjects.length;
+  //         break;
+  //       case 'marks':
+  //         comparatorResult =
+  //           a.marks.reduce((prev:any, curr:any) => prev + curr) / a.marks.length -
+  //           b.marks.reduce((prev:any, curr:any) => prev + curr) / b.marks.length;
+  //         break;
+  //       default:
+  //         comparatorResult = a.name.localeCompare(b.name);
+  //         break;
+  //     }
+  //     return comparatorResult * (sort.direction == 'asc' ? 1 : -1);
+  //   });
+  // };
+
   filterFN1 = (data: any, filter: string): boolean => {
     return data.fruit.toLowerCase().includes(filter.toLowerCase());
   };

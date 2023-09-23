@@ -22,6 +22,7 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   @Input() columns: any[] = [];
   @Input() rowClickListner!: (data?: any) => void;
   @Input() filterFn!: (data: any, filter: string) => boolean;
+  @Input() sortFn!: (data: any[], sort: MatSort) => any[];
 
   //need to work on action btns
   @Input() actionBtns: any[] = [];
@@ -37,6 +38,7 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
     this.displayedColumns = this.columns.map((x) => x.name);
     this.dataSource = new MatTableDataSource(this.data);
     this.filterDefinition();
+    this.sortDefinition();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -45,6 +47,7 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.filterDefinition();
+      this.sortDefinition();
     }
 
     if (changes['filterValue']) {
@@ -55,6 +58,12 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   filterDefinition() {
     if (this.filterFn) {
       this.dataSource.filterPredicate = this.filterFn;
+    }
+  }
+
+  sortDefinition() {
+    if (this.sortFn) {
+      this.dataSource.sortData = this.sortFn;
     }
   }
 
