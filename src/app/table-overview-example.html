@@ -15,7 +15,6 @@
   [pageSize]="10"
   [columns]="columns"
   [filterFn]="filterFN"
-  [hasRowClickHandler]="true"
   [rowClickListner]="onRowClick"
 ></app-mat-table-list>
 
@@ -26,5 +25,19 @@
   [pageSize]="10"
   [columns]="columns"
   [filterFn]="filterFN1"
-  [rowClickListner]="onRowClick"
+></app-mat-table-list>
+
+<h3>No Filter</h3>
+<app-mat-table-list
+  [data]="data"
+  [pageSize]="10"
+  [columns]="columns"
+></app-mat-table-list>
+
+<h3>Normal Filter</h3>
+<app-mat-table-list
+  [data]="data"
+  [pageSize]="10"
+  [columns]="columns"
+  [filterValue]="filterValue"
 ></app-mat-table-list>

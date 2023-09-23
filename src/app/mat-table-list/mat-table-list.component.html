@@ -19,8 +19,8 @@
       <tr
         mat-row
         *matRowDef="let row; columns: displayedColumns"
-        (click)="rowClickListner(row)"
-        [class.cursor-pointer]="hasRowClickHandler"
+        (click)="onRowClick(row)"
+        [class.cursor-pointer]="rowClickListner"
       ></tr>
 
       <tr class="mat-row" *matNoDataRow>

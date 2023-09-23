@@ -43,9 +43,6 @@ const NAMES: string[] = [
   'Elizabeth',
 ];
 
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
 @Component({
   selector: 'table-overview-example',
   styleUrls: ['table-overview-example.css'],
@@ -66,7 +63,6 @@ export class TableOverviewExample {
       disableSorting: false,
       displayName: 'Name',
       transForm: (value: string) => {
-        console.log('Transform');
         return value.toLowerCase();
       },
     },

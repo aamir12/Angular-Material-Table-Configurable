@@ -20,9 +20,8 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   @Input() filterValue: string = '';
   @Input() pageSize: number = 5;
   @Input() columns: any[] = [];
-  @Input() hasRowClickHandler: boolean = false;
-  @Input() rowClickListner: (data?: any) => void = (data: any) => {};
-  @Input() filterFn: (data: any, filter: string) => boolean;
+  @Input() rowClickListner!: (data?: any) => void;
+  @Input() filterFn!: (data: any, filter: string) => boolean;
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -61,5 +60,11 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  onRowClick(row: any) {
+    if (this.rowClickListner) {
+      this.rowClickListner(row);
+    }
   }
 }
