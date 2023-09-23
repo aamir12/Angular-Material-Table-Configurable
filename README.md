@@ -49,4 +49,4 @@
 
 #### Made By Aamir Khan
 
-Thank You 😄!!
+Thank You!! 😄
