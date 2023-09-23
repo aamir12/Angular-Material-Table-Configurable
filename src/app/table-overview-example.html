@@ -8,7 +8,7 @@
   />
 </mat-form-field>
 
-<h3>Fully Functional</h3>
+<h3>Search By Name (Full Configuration)</h3>
 <app-mat-table-list
   [data]="data"
   [filterValue]="filterValue"
@@ -21,26 +21,20 @@
   actionWidth="10%"
 ></app-mat-table-list>
 
-<h3>Search by Fruit</h3>
+<h3>Search By Fruit: (Different Filter Function)</h3>
 <app-mat-table-list
   [data]="data1"
   [filterValue]="filterValue"
-  [pageSize]="10"
   [columns]="columns"
   [filterFn]="filterFN1"
-></app-mat-table-list>
-
-<h3>No Filter</h3>
-<app-mat-table-list
-  [data]="data"
-  [pageSize]="10"
-  [columns]="columns"
 ></app-mat-table-list>
 
 <h3>Normal Filter</h3>
 <app-mat-table-list
   [data]="data"
-  [pageSize]="10"
   [columns]="columns"
   [filterValue]="filterValue"
 ></app-mat-table-list>
+
+<h3>No Filter (Minimum Configuration)</h3>
+<app-mat-table-list [data]="data" [columns]="columns"></app-mat-table-list>

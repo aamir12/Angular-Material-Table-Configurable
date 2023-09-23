@@ -19,7 +19,7 @@ import { IActionBtnConfiguration, IColumn } from '../model';
 export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() data: T[] = [];
   @Input() filterValue: string = '';
-  @Input() pageSize: number = 5;
+  @Input() pageSize: number = 10;
   @Input() columns: IColumn[] = [];
   @Input() rowClickListner!: (data: T) => void;
   @Input() filterFn!: (data: T, filter: string) => boolean;
@@ -37,19 +37,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   displayedColumns: string[] = [];
 
   ngOnInit() {
-    const displayedCols = this.columns.map((x) => x.name);
-
-    if (!!this.actionBtns) {
-      this.actionColumnWidth =
-        this.actionBtns.columnWidth || this.actionColumnWidth;
-      this.displayedColumns =
-        this.actionBtns.positions === 'start'
-          ? ['action', ...displayedCols]
-          : [...displayedCols, 'action'];
-    } else {
-      this.displayedColumns = displayedCols;
-    }
-
+    this.setUpcolumnsSetting();
     this.dataSource = new MatTableDataSource(this.data);
     this.filterDefinition();
     this.sortDefinition();
@@ -57,6 +45,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] || changes['columns']) {
+      this.setUpcolumnsSetting();
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -66,6 +55,20 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
 
     if (changes['filterValue']) {
       this.applyFilter();
+    }
+  }
+
+  setUpcolumnsSetting() {
+    const displayedCols = this.columns.map((x) => x.name);
+    if (!!this.actionBtns) {
+      this.actionColumnWidth =
+        this.actionBtns.columnWidth || this.actionColumnWidth;
+      this.displayedColumns =
+        this.actionBtns.positions === 'start'
+          ? ['action', ...displayedCols]
+          : [...displayedCols, 'action'];
+    } else {
+      this.displayedColumns = displayedCols;
     }
   }
 
