@@ -9,7 +9,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IActionBtn, IColumn } from '../table-overview-example';
+import { IActionBtnConfiguration, IColumn } from '../model';
 
 @Component({
   selector: 'app-mat-table-list',
@@ -21,13 +21,13 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() filterValue: string = '';
   @Input() pageSize: number = 5;
   @Input() columns: IColumn[] = [];
-  @Input() actionWidth: string = '5%';
   @Input() rowClickListner!: (data: T) => void;
   @Input() filterFn!: (data: T, filter: string) => boolean;
   @Input() sortFn!: (data: T[], sort: MatSort) => T[];
+  actionColumnWidth: string = '5%';
 
   //need to work on action btns
-  @Input() actionBtns: IActionBtn[] = [];
+  @Input() actionBtns!: IActionBtnConfiguration;
 
   dataSource!: MatTableDataSource<T>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -38,9 +38,17 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const displayedCols = this.columns.map((x) => x.name);
-    this.displayedColumns = !!this.actionBtns.length
-      ? ['action', ...displayedCols]
-      : displayedCols;
+
+    if (!!this.actionBtns) {
+      this.actionColumnWidth =
+        this.actionBtns.columnWidth || this.actionColumnWidth;
+      this.displayedColumns =
+        this.actionBtns.positions === 'start'
+          ? ['action', ...displayedCols]
+          : [...displayedCols, 'action'];
+    } else {
+      this.displayedColumns = displayedCols;
+    }
 
     this.dataSource = new MatTableDataSource(this.data);
     this.filterDefinition();
@@ -87,4 +95,10 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
       this.rowClickListner(row);
     }
   }
+
+  onOptionClick(event: Event) {
+    event.stopPropagation();
+  }
 }
+
+// class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base"

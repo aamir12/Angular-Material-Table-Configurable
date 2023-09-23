@@ -8,16 +8,17 @@
   />
 </mat-form-field>
 
-<h3>Search by Name</h3>
+<h3>Fully Functional</h3>
 <app-mat-table-list
   [data]="data"
   [filterValue]="filterValue"
-  [pageSize]="10"
   [columns]="columns"
   [filterFn]="filterFN"
   [sortFn]="sortFn"
   [rowClickListner]="onRowClick"
   [actionBtns]="actionBtns"
+  [pageSize]="5"
+  actionWidth="10%"
 ></app-mat-table-list>
 
 <h3>Search by Fruit</h3>

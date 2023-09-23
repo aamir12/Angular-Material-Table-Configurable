@@ -1,80 +1,75 @@
-<div class="mat-elevation-z8 my-5">
-  <div class="mat-table-container-no-top-padding">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="action" *ngIf="!!actionBtns.length">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          disabled="true"
-          [ngStyle]="{
-            width: actionWidth
-          }"
+<div class="mat-table-container">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="action" *ngIf="!!actionBtns">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        disabled="true"
+        [ngStyle]="{
+          width: actionColumnWidth
+        }"
+      >
+        Action
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          (click)="onOptionClick($event)"
+          [matMenuTriggerFor]="menu"
+          class="action-btn"
         >
-          Action
-        </th>
-        <td mat-cell *matCellDef="let row">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
           <button
-            mat-icon-button
-            [matMenuTriggerFor]="menu"
-            aria-label="Example icon-button with a menu"
+            mat-menu-item
+            *ngFor="let action of actionBtns.buttons"
+            (click)="action.onClick(row)"
           >
-            <mat-icon>more_vert</mat-icon>
+            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+            <span>{{ action.name }}</span>
           </button>
-          <mat-menu #menu="matMenu">
-            <button
-              mat-menu-item
-              *ngFor="let action of actionBtns"
-              (click)="action.onClick(row)"
-            >
-              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
-              <span>{{ action.name }}</span>
-            </button>
-          </mat-menu>
-        </td>
-      </ng-container>
-      <ng-container [matColumnDef]="col.name" *ngFor="let col of columns">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          [disabled]="col.disableSorting"
-          [ngStyle]="{
-            width: col.style ? col.style : 'auto'
-          }"
-        >
-          {{ col.displayName }}
-        </th>
-        <td mat-cell *matCellDef="let row" class="text-center">
-          {{ col.transForm ? col.transForm(row[col.name]) : row[col.name] }}
-        </td>
-      </ng-container>
+        </mat-menu>
+      </td>
+    </ng-container>
+    <ng-container [matColumnDef]="col.name" *ngFor="let col of columns">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        [disabled]="col.disableSorting"
+        [ngStyle]="{
+          width: col.style ? col.style : 'auto'
+        }"
+      >
+        {{ col.displayName }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ col.transForm ? col.transForm(row[col.name]) : row[col.name] }}
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: displayedColumns"
-        (click)="onRowClick(row)"
-        [class.cursor-pointer]="rowClickListner"
-      ></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="onRowClick(row)"
+      [class.cursor-pointer]="rowClickListner"
+    ></tr>
 
-      <tr class="mat-row" *matNoDataRow>
-        <td
-          class="mat-cell text-center"
-          [attr.colspan]="displayedColumns.length"
-        >
-          No data found
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <mat-paginator
-    #paginator
-    [class.d-none]="dataSource && !dataSource.filteredData.length"
-    [length]="data.length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 25, 50]"
-    aria-label="Select page"
-  >
-  </mat-paginator>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell text-center" [attr.colspan]="displayedColumns.length">
+        No data found
+      </td>
+    </tr>
+  </table>
 </div>
+
+<mat-paginator
+  #paginator
+  [class.d-none]="dataSource && !dataSource.filteredData.length"
+  [length]="data.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50]"
+  aria-label="Select page"
+>
+</mat-paginator>
