@@ -50,18 +50,24 @@ const NAMES: string[] = [
 })
 export class TableOverviewExample {
   data: any[] = [];
+  data1: any[] = [];
   filterValue = '';
   textSearch = '';
+
+  //Define column configuation
+  //transForm,style,disableSorting are optional
   columns = [
     {
       name: 'id',
       disableSorting: true,
       displayName: 'ID',
+      style: '10%',
     },
     {
       name: 'name',
       disableSorting: false,
       displayName: 'Name',
+      style: '20%',
       transForm: (value: string) => {
         return value.toLowerCase();
       },
@@ -70,6 +76,7 @@ export class TableOverviewExample {
       name: 'fruit',
       disableSorting: false,
       displayName: 'Fruit',
+      style: '20%',
       transForm: (value: string) => value.toUpperCase(),
     },
   ];
@@ -91,6 +98,11 @@ export class TableOverviewExample {
     // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
     this.data = users;
+
+    //after api calling testing
+    setTimeout(() => {
+      this.data1 = users;
+    }, 2000);
   }
 
   //this will useful, If we want to filter by multiple fields

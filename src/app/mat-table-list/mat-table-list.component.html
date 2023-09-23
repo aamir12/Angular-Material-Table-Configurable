@@ -7,6 +7,9 @@
           *matHeaderCellDef
           mat-sort-header
           [disabled]="col.disableSorting"
+          [ngStyle]="{
+            width: col.style ? col.style : 'auto'
+          }"
         >
           {{ col.displayName }}
         </th>
