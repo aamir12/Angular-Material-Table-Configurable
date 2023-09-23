@@ -19,10 +19,6 @@
 - Pagination and Page Size
 - Row Click handler
 
-## Screenshots
-
-![App Screenshot](https://cdn.jsdelivr.net/gh/aamir12/Angular-Material-Table-Configurable@main/src/assets/Screenshot%202023-09-23%20at%208.33.41%20PM.png)
-
 ## API Reference
 
 ```http
