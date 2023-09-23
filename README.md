@@ -12,7 +12,7 @@
 - Responsive Table
 - Custom Filtration
 - Custom Sorting
-- Apply Multiple Columns Filtration by using custom Columns
+- Apply Multiple Columns Filtration by using custom function
 - Action Buttons
 - Action Button width and position
 - Fully Type Safe
