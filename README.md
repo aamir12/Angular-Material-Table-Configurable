@@ -21,7 +21,7 @@
 
 ## Screenshots
 
-![App Screenshot](https://github.com/aamir12/Angular-Material-Table-Configurable/blob/main/src/assets/screenshot.png)
+![App Screenshot](./src/assets/screenshot.png)
 
 ## API Reference
 
