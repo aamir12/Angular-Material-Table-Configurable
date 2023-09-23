@@ -22,12 +22,17 @@ export class MatTableListComponent implements OnInit, AfterViewInit {
   @Input() columns: any[] = [];
   @Input() rowClickListner!: (data?: any) => void;
   @Input() filterFn!: (data: any, filter: string) => boolean;
-  dataSource: MatTableDataSource<any>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+
+  //need to work on action btns
+  @Input() actionBtns: any[] = [];
+
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   // console.log(this.columns);
   displayedColumns: string[] = [];
+
   ngOnInit() {
     this.displayedColumns = this.columns.map((x) => x.name);
     this.dataSource = new MatTableDataSource(this.data);
