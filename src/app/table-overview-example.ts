@@ -16,6 +16,7 @@ export class TableOverviewExample {
 
   //Define column configuation
   //transForm,style,disableSorting are optional
+
   columns: IColumn[] = [
     {
       name: 'id',

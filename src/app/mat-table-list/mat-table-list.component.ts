@@ -44,8 +44,11 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['data'] || changes['columns']) {
+    if (changes['columns']) {
       this.setUpcolumnsSetting();
+    }
+
+    if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
