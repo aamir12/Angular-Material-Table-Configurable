@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableListComponent } from './mat-table-list/mat-table-list.component';
+import { WindowProvider } from './window.service';
 
 @NgModule({
   declarations: [TableOverviewExample, MatTableListComponent],
@@ -20,7 +21,7 @@ import { MatTableListComponent } from './mat-table-list/mat-table-list.component
     MaterialExampleModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [WindowProvider],
   bootstrap: [TableOverviewExample],
 })
 export class AppModule {}

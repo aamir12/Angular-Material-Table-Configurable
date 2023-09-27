@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { IActionBtnConfiguration, IColumn, IUserData } from './model';
 import { createNewUser } from './data';
+import { WINDOW } from './window.service';
 
 @Component({
   selector: 'table-overview-example',
@@ -64,7 +65,12 @@ export class TableOverviewExample {
     ],
   };
 
-  constructor() {
+  //Window object wrapper
+  constructor(@Inject(WINDOW) private window: Window) {
+    // setTimeout(() => {
+    //   this.window.alert("Hi...")
+    // }, 3000);
+
     // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
     this.data = users;
