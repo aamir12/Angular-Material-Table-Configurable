@@ -65,7 +65,7 @@ export class TableOverviewExample {
     ],
   };
 
-  //bindingFn;
+  //to check access of variables;
   testVar: string = 'test variables';
 
   //Window object wrapper
