@@ -49,21 +49,24 @@ export class TableOverviewExample {
     buttons: [
       {
         name: 'View',
-        onClick: this.onView,
+        onClick: this.onView.bind(this),
         icon: 'visibility',
       },
       {
         name: 'Edit',
-        onClick: this.onEdit,
+        onClick: this.onEdit.bind(this),
         icon: 'edit',
       },
       {
         name: 'Delete',
-        onClick: this.onDelete,
+        onClick: this.onDelete.bind(this),
         icon: 'delete',
       },
     ],
   };
+
+  //bindingFn;
+  testVar: string = 'test variables';
 
   //Window object wrapper
   constructor(@Inject(WINDOW) private window: Window) {
@@ -90,10 +93,12 @@ export class TableOverviewExample {
   //Action Functions
   onEdit(row: IUserData) {
     console.log('On Edit', row);
+    console.log(this.testVar);
   }
 
   onView(row: IUserData) {
     console.log('On View', row);
+    console.log(this.testVar);
   }
 
   onDelete(row: IUserData) {
@@ -107,6 +112,7 @@ export class TableOverviewExample {
     }
 
     console.log('Custom Sorting');
+    console.log(this.testVar);
     return items.sort((a, b) => {
       let comparatorResult = 0;
       switch (sort.active) {
