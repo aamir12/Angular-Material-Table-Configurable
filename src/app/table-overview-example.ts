@@ -177,5 +177,6 @@ export class TableOverviewExample {
   onRowClick = (data: IUserData) => {
     console.log('Row Click');
     console.log(data);
+    console.log(this.testVar);
   };
 }
