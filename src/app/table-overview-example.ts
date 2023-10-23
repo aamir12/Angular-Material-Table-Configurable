@@ -54,6 +54,7 @@ export class TableOverviewExample {
         name: 'View',
         onClick: this.onView.bind(this),
         icon: 'visibility',
+        access: this.canView.bind(this),
       },
       {
         name: 'Edit',
@@ -107,6 +108,10 @@ export class TableOverviewExample {
 
   onDelete(row: IUserData) {
     console.log('On Delete', row);
+  }
+
+  canView(row: IUserData) {
+    return false;
   }
 
   //Custom Sorting Function

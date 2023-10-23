@@ -20,14 +20,16 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button
-            mat-menu-item
-            *ngFor="let action of actionBtns.buttons"
-            (click)="action.onClick(row)"
-          >
-            <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
-            <span>{{ action.name }}</span>
-          </button>
+          <ng-container *ngFor="let action of actionBtns.buttons">
+            <button
+              mat-menu-item
+              *ngIf="action.access ? action.access(row) : true"
+              (click)="action.onClick(row)"
+            >
+              <mat-icon *ngIf="action.icon">{{ action.icon }}</mat-icon>
+              <span>{{ action.name }}</span>
+            </button>
+          </ng-container>
         </mat-menu>
       </td>
     </ng-container>

@@ -16,8 +16,9 @@ export interface IColumn {
 
 export interface IActionBtn {
   name: string;
-  onClick: (data: IUserData) => void;
+  onClick: (data: any) => void;
   icon?: string;
+  access?: (data: any) => boolean;
 }
 
 export interface IActionBtnConfiguration {
