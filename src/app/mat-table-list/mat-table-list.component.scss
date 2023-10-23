@@ -38,3 +38,16 @@
 .mat-menu-item {
   min-width: 180px;
 }
+
+:host-context(.black-header) .mat-header-cell {
+  background: #666;
+  color: #fff;
+}
+
+:host-context(.black-header) .mat-header-cell:first-child {
+  border-top-left-radius: 5px;
+}
+
+:host-context(.black-header) .mat-header-cell:last-child {
+  border-top-right-radius: 5px;
+}

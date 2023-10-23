@@ -19,6 +19,7 @@
 - Action Button width and position
 - Pagination and Page Size
 - Row Click handler
+- Theme Support
 - Window Object Wrapper(Personal Testing)
 
 ## API Reference
