@@ -76,6 +76,7 @@ export class TableOverviewExample {
 
     // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
+    console.log(JSON.stringify(users, null, 2));
     this.data = users;
 
     //after api calling testing

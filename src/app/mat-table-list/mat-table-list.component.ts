@@ -20,6 +20,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() data: T[] = [];
   @Input() filterValue: string = '';
   @Input() pageSize: number = 10;
+  @Input() limitSizes: number[] = [5, 10, 25, 50, 100];
   @Input() columns: IColumn[] = [];
   @Input() rowClickListner!: (data: T) => void;
   @Input() filterFn!: (data: T, filter: string) => boolean;
