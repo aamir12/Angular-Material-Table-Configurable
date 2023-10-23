@@ -26,16 +26,18 @@
 ## API Reference
 
 ```http
-  <app-mat-table-list
+
+<app-mat-table-list
+  class="black-header"
   [data]="data"
-  [columns]="columns"
   [filterValue]="filterValue"
+  [columns]="columns"
   [filterFn]="filterFN"
   [sortFn]="sortFn"
   [rowClickListner]="onRowClick"
   [actionBtns]="actionBtns"
   [pageSize]="5"
-  [limitSizes]="[5,10,25,50]"
+  [limitSizes]="[5,10,50]"
 ></app-mat-table-list>
 
 ```
