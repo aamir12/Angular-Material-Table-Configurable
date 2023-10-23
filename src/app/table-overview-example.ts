@@ -117,15 +117,15 @@ export class TableOverviewExample {
   }
 
   canView(row: IUserData) {
-    return false;
+    return true;
   }
 
   canEdit(row: IUserData) {
-    return false;
+    return true;
   }
 
   canDelete(row: IUserData) {
-    return false;
+    return true;
   }
 
   //Custom Sorting Function

@@ -19,7 +19,8 @@ import { IActionBtnConfiguration, IColumn, Style } from '../model';
 export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() data: T[] = [];
   @Input() filterValue: string = '';
-  @Input() tableClasses: string[] = [];
+  @Input() containerClasses: string[] = [];
+  @Input() tableContainerClasses: string[] = [];
   @Input() pageSize: number = 10;
   @Input() limitSizes: number[] = [5, 10, 25, 50, 100];
   @Input() columns: IColumn[] = [];

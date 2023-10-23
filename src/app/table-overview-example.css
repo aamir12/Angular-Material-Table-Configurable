@@ -15,3 +15,7 @@ th {
 .d-none {
   display: none;
 }
+
+:host ::ng-deep .custom-table {
+  background-color: rgb(216, 181, 161);
+}

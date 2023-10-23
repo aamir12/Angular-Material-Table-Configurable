@@ -1,5 +1,5 @@
-<div [ngClass]="tableClasses">
-  <div class="mat-table-container">
+<div [ngClass]="containerClasses">
+  <div class="mat-table-container" [ngClass]="tableContainerClasses">
     <table mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="action" *ngIf="!!actionBtns">
         <th
