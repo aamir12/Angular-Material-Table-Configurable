@@ -179,4 +179,9 @@ export class TableOverviewExample {
     console.log(data);
     console.log(this.testVar);
   };
+
+  clearFilter() {
+    this.textSearch = '';
+    this.applyFilter();
+  }
 }

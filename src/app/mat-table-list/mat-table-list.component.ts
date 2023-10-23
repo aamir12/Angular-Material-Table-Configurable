@@ -106,5 +106,3 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
     event.stopPropagation();
   }
 }
-
-// class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base"

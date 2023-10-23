@@ -6,6 +6,16 @@
     (input)="applyFilter()"
     placeholder="Search Here"
   />
+
+  <button
+    *ngIf="textSearch"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clearFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
 </mat-form-field>
 
 <h3>Search By Name (Full Configuration)</h3>
