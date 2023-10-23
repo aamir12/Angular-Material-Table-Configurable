@@ -9,7 +9,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IActionBtnConfiguration, IColumn } from '../model';
+import { IActionBtnConfiguration, IColumn, Style } from '../model';
 
 @Component({
   selector: 'app-mat-table-list',
@@ -25,7 +25,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() rowClickListner!: (data: T) => void;
   @Input() filterFn!: (data: T, filter: string) => boolean;
   @Input() sortFn!: (data: T[], sort: MatSort) => T[];
-  actionColumnWidth: string = '5%';
+  actionColumnStyle: Style = {};
 
   //need to work on action btns
   @Input() actionBtns!: IActionBtnConfiguration<T>;
@@ -65,8 +65,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   setUpcolumnsSetting() {
     const displayedCols = this.columns.map((x) => x.name);
     if (!!this.actionBtns) {
-      this.actionColumnWidth =
-        this.actionBtns.columnWidth || this.actionColumnWidth;
+      this.actionColumnStyle = this.actionBtns.style || this.actionColumnStyle;
       this.displayedColumns =
         this.actionBtns.positions === 'start'
           ? ['action', ...displayedCols]

@@ -5,9 +5,7 @@
         mat-header-cell
         *matHeaderCellDef
         disabled="true"
-        [ngStyle]="{
-          width: actionColumnWidth
-        }"
+        [ngStyle]="actionColumnStyle"
       >
         Action
       </th>
@@ -39,9 +37,7 @@
         *matHeaderCellDef
         mat-sort-header
         [disabled]="col.disableSorting"
-        [ngStyle]="{
-          width: col.style ? col.style : 'auto'
-        }"
+        [ngStyle]="col.style ? col.style : {}"
         [ngClass]="col.classes ? col.classes : []"
       >
         {{ col.displayName }}

@@ -24,14 +24,14 @@ export class TableOverviewExample {
       name: 'id',
       disableSorting: true,
       displayName: 'ID',
-      style: '10%',
+      style: { width: '10%' },
       classes: ['text-center'],
     },
     {
       name: 'name',
       disableSorting: false,
       displayName: 'Name',
-      style: '20%',
+      style: { width: '20%', backgroundColor: '#ff0000' },
       transForm: (value: string) => {
         return value.toLowerCase();
       },
@@ -41,7 +41,7 @@ export class TableOverviewExample {
       name: 'fruit',
       disableSorting: false,
       displayName: 'Fruit',
-      style: '20%',
+      style: { width: '20%' },
       transForm: (value: string) => value.toUpperCase(),
       classes: ['text-center'],
     },
@@ -49,7 +49,9 @@ export class TableOverviewExample {
 
   actionBtns: IActionBtnConfiguration<IUserData> = {
     positions: 'start',
-    columnWidth: '10%',
+    style: {
+      width: '5%',
+    },
     buttons: [
       {
         name: 'View',

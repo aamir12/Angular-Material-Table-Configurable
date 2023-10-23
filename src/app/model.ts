@@ -5,11 +5,15 @@ export interface IUserData {
   fruit: string;
 }
 
+export interface Style {
+  [key: string]: string;
+}
+
 export interface IColumn {
   name: string;
   disableSorting?: boolean;
   displayName: string;
-  style?: string;
+  style?: Style;
   transForm?: (value: string) => string;
   classes?: string[];
 }
@@ -23,6 +27,6 @@ export interface IActionBtn<T> {
 
 export interface IActionBtnConfiguration<T> {
   positions: 'start' | 'end';
-  columnWidth?: string;
+  style?: Style;
   buttons: IActionBtn<T>[];
 }
