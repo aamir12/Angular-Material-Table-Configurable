@@ -7,11 +7,12 @@ import { TableOverviewExample } from './table-overview-example';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableListComponent } from './mat-table-list/mat-table-list.component';
+// import { MatTableListComponent } from './mat-table-list/mat-table-list.component';
 import { WindowProvider } from './window.service';
+import { MatTableListModule } from './mat-table-list/mat-table-list.module';
 
 @NgModule({
-  declarations: [TableOverviewExample, MatTableListComponent],
+  declarations: [TableOverviewExample],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -20,6 +21,7 @@ import { WindowProvider } from './window.service';
     MatNativeDateModule,
     MaterialExampleModule,
     ReactiveFormsModule,
+    MatTableListModule,
   ],
   providers: [WindowProvider],
   bootstrap: [TableOverviewExample],
