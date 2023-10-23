@@ -35,6 +35,7 @@
   [rowClickListner]="onRowClick"
   [actionBtns]="actionBtns"
   [pageSize]="5"
+  [limitSizes]="[5,10,25,50]"
 ></app-mat-table-list>
 
 ```
