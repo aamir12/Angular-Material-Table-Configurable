@@ -24,14 +24,14 @@ export class TableOverviewExample {
       name: 'id',
       disableSorting: true,
       displayName: 'ID',
-      style: { width: '10%' },
+      headerStyle: { width: '10%' },
       classes: ['text-center'],
     },
     {
       name: 'name',
       disableSorting: false,
       displayName: 'Name',
-      style: { width: '20%', backgroundColor: '#ff0000' },
+      headerStyle: { width: '20%', backgroundColor: '#ff0000' },
       transForm: (value: string) => {
         return value.toLowerCase();
       },
@@ -41,7 +41,8 @@ export class TableOverviewExample {
       name: 'fruit',
       disableSorting: false,
       displayName: 'Fruit',
-      style: { width: '20%' },
+      headerStyle: { width: '20%' },
+      dataStyle: { background: '#000', color: '#fff' },
       transForm: (value: string) => value.toUpperCase(),
       classes: ['text-center'],
     },

@@ -13,7 +13,8 @@ export interface IColumn {
   name: string;
   disableSorting?: boolean;
   displayName: string;
-  style?: Style;
+  headerStyle?: Style;
+  dataStyle?: Style;
   transForm?: (value: string) => string;
   classes?: string[];
 }

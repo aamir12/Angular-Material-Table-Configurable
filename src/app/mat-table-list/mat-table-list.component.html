@@ -37,7 +37,7 @@
         *matHeaderCellDef
         mat-sort-header
         [disabled]="col.disableSorting"
-        [ngStyle]="col.style ? col.style : {}"
+        [ngStyle]="col.headerStyle ? col.headerStyle : {}"
         [ngClass]="col.classes ? col.classes : []"
       >
         {{ col.displayName }}
@@ -46,6 +46,7 @@
         mat-cell
         *matCellDef="let row"
         [ngClass]="col.classes ? col.classes : []"
+        [ngStyle]="col.dataStyle ? col.dataStyle : {}"
       >
         {{ col.transForm ? col.transForm(row[col.name]) : row[col.name] }}
       </td>
