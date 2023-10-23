@@ -118,7 +118,6 @@ export class TableOverviewExample {
   }
 
   canEdit(row: IUserData) {
-    console.log(row);
     return false;
   }
 
