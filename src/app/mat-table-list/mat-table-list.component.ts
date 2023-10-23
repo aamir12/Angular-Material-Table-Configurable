@@ -90,7 +90,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   }
 
   applyFilter() {
-    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+    this.dataSource.filter = this.filterValue.trim();
   }
 
   ngAfterViewInit(): void {
