@@ -20,6 +20,7 @@
 - Pagination and Page Size
 - Row Click handler
 - Theme Support
+- Action buttons checks permissoin before render
 - Window Object Wrapper(Personal Testing)
 
 ## API Reference
