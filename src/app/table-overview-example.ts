@@ -24,6 +24,7 @@ export class TableOverviewExample {
       disableSorting: true,
       displayName: 'ID',
       style: '10%',
+      classes: ['text-center'],
     },
     {
       name: 'name',
@@ -33,6 +34,7 @@ export class TableOverviewExample {
       transForm: (value: string) => {
         return value.toLowerCase();
       },
+      classes: ['text-center'],
     },
     {
       name: 'fruit',
@@ -40,6 +42,7 @@ export class TableOverviewExample {
       displayName: 'Fruit',
       style: '20%',
       transForm: (value: string) => value.toUpperCase(),
+      classes: ['text-center'],
     },
   ];
 

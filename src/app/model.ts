@@ -11,6 +11,7 @@ export interface IColumn {
   displayName: string;
   style?: string;
   transForm?: (value: string) => string;
+  classes?: string[];
 }
 
 export interface IActionBtn {
