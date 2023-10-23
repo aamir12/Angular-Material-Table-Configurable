@@ -28,7 +28,7 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   actionColumnWidth: string = '5%';
 
   //need to work on action btns
-  @Input() actionBtns!: IActionBtnConfiguration;
+  @Input() actionBtns!: IActionBtnConfiguration<T>;
 
   dataSource!: MatTableDataSource<T>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

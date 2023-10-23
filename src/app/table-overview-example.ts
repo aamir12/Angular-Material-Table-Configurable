@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { IActionBtnConfiguration, IColumn, IUserData } from './model';
 import { createNewUser } from './data';
 import { WINDOW } from './window.service';
+import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'table-overview-example',
@@ -46,7 +47,7 @@ export class TableOverviewExample {
     },
   ];
 
-  actionBtns: IActionBtnConfiguration = {
+  actionBtns: IActionBtnConfiguration<IUserData> = {
     positions: 'start',
     columnWidth: '10%',
     buttons: [
@@ -60,11 +61,13 @@ export class TableOverviewExample {
         name: 'Edit',
         onClick: this.onEdit.bind(this),
         icon: 'edit',
+        access: this.canEdit.bind(this),
       },
       {
         name: 'Delete',
         onClick: this.onDelete.bind(this),
         icon: 'delete',
+        access: this.canDelete.bind(this),
       },
     ],
   };
@@ -80,7 +83,7 @@ export class TableOverviewExample {
 
     // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
-    console.log(JSON.stringify(users, null, 2));
+    // console.log(JSON.stringify(users, null, 2));
     this.data = users;
 
     //after api calling testing
@@ -111,6 +114,15 @@ export class TableOverviewExample {
   }
 
   canView(row: IUserData) {
+    return false;
+  }
+
+  canEdit(row: IUserData) {
+    console.log(row);
+    return false;
+  }
+
+  canDelete(row: IUserData) {
     return false;
   }
 

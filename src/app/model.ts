@@ -14,15 +14,15 @@ export interface IColumn {
   classes?: string[];
 }
 
-export interface IActionBtn {
+export interface IActionBtn<T> {
   name: string;
-  onClick: (data: any) => void;
+  onClick: (data: T) => void;
   icon?: string;
-  access?: (data: any) => boolean;
+  access?: (data: T) => boolean;
 }
 
-export interface IActionBtnConfiguration {
+export interface IActionBtnConfiguration<T> {
   positions: 'start' | 'end';
   columnWidth?: string;
-  buttons: IActionBtn[];
+  buttons: IActionBtn<T>[];
 }
