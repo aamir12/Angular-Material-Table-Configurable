@@ -27,7 +27,6 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   @Input() rowClickListner!: (data: T) => void;
   @Input() filterFn!: (data: T, filter: string) => boolean;
   @Input() sortFn!: (data: T[], sort: MatSort) => T[];
-  actionColumnStyle: Style = {};
 
   //need to work on action btns
   @Input() actionBtns!: IActionBtnConfiguration<T>;
@@ -67,7 +66,6 @@ export class MatTableListComponent<T> implements OnInit, AfterViewInit {
   setUpcolumnsSetting() {
     const displayedCols = this.columns.map((x) => x.name);
     if (!!this.actionBtns) {
-      this.actionColumnStyle = this.actionBtns.style || this.actionColumnStyle;
       this.displayedColumns =
         this.actionBtns.positions === 'start'
           ? ['action', ...displayedCols]

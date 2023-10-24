@@ -25,17 +25,19 @@ export class TableOverviewExample {
       disableSorting: true,
       displayName: 'ID',
       headerStyle: { width: '10%' },
-      classes: ['text-center'],
+      headerClasses: ['text-center'],
+      dataClasses: ['text-center'],
     },
     {
       name: 'name',
       disableSorting: false,
       displayName: 'Name',
       headerStyle: { width: '20%', backgroundColor: '#ff0000' },
+      headerClasses: ['text-center'],
+      dataClasses: ['text-center'],
       transForm: (value: string) => {
         return value.toLowerCase();
       },
-      classes: ['text-center'],
     },
     {
       name: 'fruit',
@@ -43,16 +45,22 @@ export class TableOverviewExample {
       displayName: 'Fruit',
       headerStyle: { width: '20%' },
       dataStyle: { background: '#000', color: '#fff' },
+      headerClasses: ['text-center'],
+      dataClasses: ['text-center'],
       transForm: (value: string) => value.toUpperCase(),
-      classes: ['text-center'],
     },
   ];
 
   actionBtns: IActionBtnConfiguration<IUserData> = {
     positions: 'start',
-    style: {
+    headerStyle: {
       width: '5%',
     },
+    headerClasses: ['text-center'],
+    dataStyle: {
+      backgroundColor: '#f1f1f1',
+    },
+    dataClasses: ['text-center'],
     buttons: [
       {
         name: 'View',

@@ -16,7 +16,8 @@ export interface IColumn {
   headerStyle?: Style;
   dataStyle?: Style;
   transForm?: (value: string) => string;
-  classes?: string[];
+  headerClasses?: string[];
+  dataClasses?: string[];
 }
 
 export interface IActionBtn<T> {
@@ -28,6 +29,10 @@ export interface IActionBtn<T> {
 
 export interface IActionBtnConfiguration<T> {
   positions: 'start' | 'end';
-  style?: Style;
+  headerStyle?: Style;
+  dataStyle?: Style;
+  headerClasses?: string[];
+  dataClasses?: string[];
+  classes?: string[];
   buttons: IActionBtn<T>[];
 }
