@@ -7,7 +7,7 @@
           *matHeaderCellDef
           disabled="true"
           [ngStyle]="actionBtns.headerStyle ? actionBtns.headerStyle : {}"
-          [ngClass]="actionBtns.headerClasses ? actionBtns.headerClasses : {}"
+          [ngClass]="actionBtns.headerClasses ? actionBtns.headerClasses : []"
         >
           Action
         </th>
@@ -52,8 +52,8 @@
         <td
           mat-cell
           *matCellDef="let row"
-          [ngClass]="col.dataClasses ? col.dataClasses : []"
           [ngStyle]="col.dataStyle ? col.dataStyle : {}"
+          [ngClass]="col.dataClasses ? col.dataClasses : []"
         >
           {{ col.transForm ? col.transForm(row[col.name]) : row[col.name] }}
         </td>
