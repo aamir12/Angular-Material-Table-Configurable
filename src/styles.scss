@@ -16,3 +16,7 @@ body {
 .mat-sort-header-container {
   justify-content: center;
 }
+
+.mat-sort-header-disabled .mat-sort-header-arrow {
+  display: none !important;
+}
