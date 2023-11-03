@@ -36,7 +36,7 @@ export class TableOverviewExample {
       headerStyle: { width: '20%', backgroundColor: '#ff0000' },
       headerClasses: ['text-center'],
       dataClasses: ['text-center'],
-      transForm: (value: string) => {
+      transForm: (value: any) => {
         return value.toLowerCase();
       },
     },
@@ -48,7 +48,7 @@ export class TableOverviewExample {
       dataStyle: { background: '#000', color: '#fff' },
       headerClasses: ['text-center'],
       dataClasses: ['text-center'],
-      transForm: (value: string) => value.toUpperCase(),
+      transForm: (value: any) => value.toUpperCase(),
     },
     {
       name: 'price',

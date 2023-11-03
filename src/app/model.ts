@@ -16,7 +16,7 @@ export interface IColumn {
   displayName: string;
   headerStyle?: Style;
   dataStyle?: Style;
-  transForm?: (value: string) => string;
+  transForm?: (value: any) => any;
   headerClasses?: string[];
   dataClasses?: string[];
 }
