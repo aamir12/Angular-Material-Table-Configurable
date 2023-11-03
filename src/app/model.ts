@@ -3,6 +3,7 @@ export interface IUserData {
   name: string;
   progress: string;
   fruit: string;
+  price: number;
 }
 
 export interface Style {

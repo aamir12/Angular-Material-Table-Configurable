@@ -4,6 +4,7 @@ import { IActionBtnConfiguration, IColumn, IUserData } from './model';
 import { createNewUser } from './data';
 import { WINDOW } from './window.service';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'table-overview-example',
@@ -49,6 +50,15 @@ export class TableOverviewExample {
       dataClasses: ['text-center'],
       transForm: (value: string) => value.toUpperCase(),
     },
+    {
+      name: 'price',
+      disableSorting: false,
+      displayName: 'Price',
+      headerClasses: ['text-center'],
+      dataClasses: ['text-center'],
+      transForm: (value: string) =>
+        this.currencyPipe.transform(value, 'EUR', 'symbol'),
+    },
   ];
 
   actionBtns: IActionBtnConfiguration<IUserData> = {
@@ -87,7 +97,10 @@ export class TableOverviewExample {
   testVar: string = 'test variables';
 
   //Window object wrapper
-  constructor(@Inject(WINDOW) private window: Window) {
+  constructor(
+    @Inject(WINDOW) private window: Window,
+    private currencyPipe: CurrencyPipe
+  ) {
     // setTimeout(() => {
     //   this.window.alert("Hi...")
     // }, 3000);

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { MatTableListComponent } from './mat-table-list/mat-table-list.component';
 import { WindowProvider } from './window.service';
 import { MatTableListModule } from './mat-table-list/mat-table-list.module';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [TableOverviewExample],
@@ -23,7 +24,7 @@ import { MatTableListModule } from './mat-table-list/mat-table-list.module';
     ReactiveFormsModule,
     MatTableListModule,
   ],
-  providers: [WindowProvider],
+  providers: [WindowProvider, CurrencyPipe],
   bootstrap: [TableOverviewExample],
 })
 export class AppModule {}

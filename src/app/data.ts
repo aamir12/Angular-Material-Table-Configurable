@@ -46,5 +46,6 @@ function createNewUser(id: number): IUserData {
     name: name,
     progress: Math.round(Math.random() * 100).toString(),
     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
+    price: Math.round(Math.random() * 1000),
   };
 }
