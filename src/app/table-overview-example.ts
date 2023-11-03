@@ -33,7 +33,7 @@ export class TableOverviewExample {
       name: 'name',
       disableSorting: false,
       displayName: 'Name',
-      headerStyle: { width: '20%', backgroundColor: '#ff0000' },
+      headerStyle: { width: '20%', backgroundColor: '#ff0000', color: '#fff' },
       headerClasses: ['text-center'],
       dataClasses: ['text-center'],
       transForm: (value: any) => {
